@@ -1,0 +1,44 @@
+
+
+h1 {
+    font-size:  ;
+    font-family: Georgia;
+    padding: ;
+    margin-top: 100px;
+    margin-left: 150px;
+    margin-right: 150px;
+    font-weight: ;
+    text-decoration: ;
+    color: #b3f542;
+    background-color: ;
+}
+
+h2 {
+    font-size: ;
+    font-family: Cursive;
+    padding: ;
+    margin-left: 150px;
+    margin-right: 150px;
+    font-weight: ;
+    color: #4287f5;
+    background-color: #b3f542;
+}
+
+p {
+    font-family: Verdana;
+    font-size: ;
+    padding: ;
+    margin-left: 150px;
+    margin-right: 150px;
+    color: ;
+    background-color: ;
+}
+
+.logo {
+    background-size: cover;
+    background-image: url("https://appacademy.github.io/styleguide/assets/logo/logo-emblem-black-1000.png");
+    background-color: ;
+    margin-left: 150px;
+    height: 200px;
+    width: 200px;
+}
