@@ -108,3 +108,126 @@ console.log(tripletTrue('terrrrrible'));   // true
 console.log(tripletTrue('runninggg'));     // true
 console.log(tripletTrue('bootcamp'));      // false
 console.log(tripletTrue('e'));             // false
+
+
+//has three vowels//
+
+function hasThreeVowels(str) {
+  let count = 0;
+  let vowels = 'aeiou';
+  let uniqueVowels = "";
+  for (i=0; i<=str.length-1; i++) {
+      if (vowels.includes(str[i]) &&
+  !uniqueVowels.includes(str[i])) {
+          uniqueVowels += str[i];
+          count++
+      }
+  } return count>=3
+}
+
+
+console.log(hasThreeVowels('delicious'));       //  true
+console.log(hasThreeVowels('bootcamp prep'));   //  true
+console.log(hasThreeVowels('bootcamp'));        //  false
+console.log(hasThreeVowels('dog'));             //  false
+console.log(hasThreeVowels('go home'));         //  false
+
+
+//last index//
+function lastIndex(str, char) {
+  // your code here
+  for (i=str.length-1; i>0; i--) {
+      if (str[i]===char) {
+          return i
+      }
+  }
+}
+
+console.log(lastIndex("abca", "a"))        // 3
+console.log(lastIndex("mississipi", "i"))  // 9
+console.log(lastIndex("octagon", "o"))     // 5
+console.log(lastIndex("programming", "m")) // 7
+
+
+//double letter count//
+function doubleLetterCount(string) {
+  let count = 0;
+  for (i=0; i<=string.length-1; i++) {
+      if(string[i]===string[i+1]){
+          count += 1
+      }
+  }return count
+}
+
+console.log(doubleLetterCount("the jeep rolled down the hill"));  // 3
+console.log(doubleLetterCount("bootcamp")); // 1
+console.log(doubleLetterCount("bookkeepper")); // 1
+
+
+//caesar cipher//
+
+function caesarCipher(string, num) {
+  // your code here
+  let newWord="";
+  let alphabet = "abcdefghijklmnopqrstuvwxyz";
+  for (i=0; i<=string.length-1; i++) {
+      if (alphabet.indexOf(string[i])+num<=26) {
+      newWord=newWord+ alphabet[alphabet.indexOf(string[i])+num]
+      } else {
+          newWord=newWord+ alphabet[(alphabet.indexOf(string[i])+num)-26]
+      }
+  }return newWord
+}
+
+console.log(caesarCipher("apple", 1)); // "bqqmf"
+console.log(caesarCipher("bootcamp", 2)); // "dqqvecor"
+console.log(caesarCipher("zebra", 4)); // "difve"
+
+
+
+//vowel cipher//
+function vowelCipher(string) {
+  // your code here
+  let vowels="aeiou";
+  let newWord=""
+  for (i=0; i<=string.length-1; i++) {
+      if(string[i]==="u") {
+          newWord=newWord+"a"
+      } else if(vowels.includes(string[i])) {
+          newWord=newWord+vowels[vowels.indexOf(string[i])+1]
+      } else {
+          newWord=newWord+string[i]
+      }
+  } return newWord
+}
+
+
+console.log(vowelCipher("bootcamp")); // "buutcemp"
+console.log(vowelCipher("paper cup")); // "pepir cap"
+
+
+//longet name//
+function longestName(names) {
+
+  // Set the first name to be the longest
+  let currentLongest = names[0];
+
+  // Check each other name in the array starting from the second
+  for (let i=1; i<=names.length-1; i++) {
+
+      // If the name we're checking is longer than our
+      // current longest, set that name to be the new longest
+      if (names[i].length > currentLongest.length) {
+          currentLongest = names[i];
+      }
+
+  }
+
+  return currentLongest;
+}
+
+testNames = ["James", "Patricia", "Michael", "Elizabeth", "Christopher",
+           "Sarah", "Margaret", "Kenneth", "Stephanie", "Jonathan",
+           "Jeremy", "Samantha", "Alexander", "Catherine", "Benjamin"]
+
+console.log(longestName(testNames)); // "Christopher"
