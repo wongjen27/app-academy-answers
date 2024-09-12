@@ -195,3 +195,160 @@ console.log(prevPrime(7));  // 5
 console.log(prevPrime(4));  // 3
 console.log(prevPrime(2));  // null
 console.log(prevPrime(1));  // null
+
+
+// -- addition mutator -- //
+
+// Write a function additionMutator that accepts an array and a number as an arguments.
+// The function should mutate the input array such that every element has the given number added to it.
+
+//writing it with a new array. This is not mutating the existing array.
+
+function additionMutator1(arr, num) {
+    let newArr = [];
+    for (i=0; i<=arr.length-1; i++) {
+        let newNum = num + arr[i];
+        newArr = newArr.concat(newNum);
+    } return newArr;
+}
+
+console.log(additionMutator1([1,2,3,4,5],7))
+console.log(additionMutator1([3,7,1,2],4))
+
+
+function additionMutator(arr, num) {
+    for (i=0; i<=arr.length-1; i++) {
+        let newNum = num + arr[i];
+        arr[i] = newNum
+    } return arr
+}
+
+console.log("")
+let nums1 = [3, 7, 1, 2];
+additionMutator(nums1, 4);
+console.log(nums1);     // [ 7, 11, 5, 6 ]
+
+let nums2 = [11, 9, 4];
+additionMutator(nums2, -1);
+console.log(nums2);     // [ 10, 8, 3 ]
+
+
+
+// -- alternating words -- //
+
+// Write a function alternatingWords that accepts an array of words as an argument.
+// The function should mutate the input array such that the words
+// alternate between fully uppercase or lowercase. The first word should be uppercase.
+
+
+function alternatingWords(arr) {
+    for (let i=0; i<=arr.length-1; i++) {
+        if(i%2===0) {
+            arr[i] = arr[i].toUpperCase();
+        } else {
+            arr[i] = arr[i].toLowerCase()
+        }
+    } return arr
+}
+
+
+
+let words1 = ['Belka', 'STRELKA', 'laika', 'DEZIK', 'Tsygan'];
+alternatingWords(words1);
+console.log(words1); // [ 'BELKA', 'strelka', 'LAIKA', 'dezik', 'TSYGAN' ]
+
+let words2 = ['Yellowstone', 'Yosemite', 'Zion', 'Acadia'];
+alternatingWords(words2);
+console.log(words2); // [ 'YELLOWSTONE', 'yosemite', 'ZION', 'acadia' ]
+
+
+// -- reverse string -- //
+
+// Write a function reverseString(str) that takes in a string.
+// The function should return a new string where the order of the characters is reversed.
+
+// your code here
+
+function reverseString(str) {
+    let newWord = "";
+    for (let i = str.length-1; i >= 0; i--) {
+        newWord = newWord + str[i]
+    } return newWord
+}
+
+
+console.log(reverseString('fish')); // 'hsif'
+console.log(reverseString('marathon')); // 'nohtaram'
+
+
+// -- remove last vowel -- //
+
+// Write a function removeLastVowel(word) that takes in a string and returns the string with its last vowel removed.
+
+// your code here
+
+function removeLastVowel(str) {
+    let vowels = "aeiouAEIOU";
+    for (let i = str.length - 1; i >= 0; i--) {
+        if (vowels.includes(str[i])) {
+            str[i] = ""
+        }
+    } return str
+}
+
+
+console.log(removeLastVowel('bootcamp')); // 'bootcmp'
+console.log(removeLastVowel('better')); // 'bettr'
+console.log(removeLastVowel('graph')); // 'grph'
+console.log(removeLastVowel('thy')); // 'thy'
+
+
+// -- remove last vowel -- //
+
+// Write a function removeLastVowel(word) that takes in a string and returns the string with its last vowel removed.
+
+// your code here
+
+function removeLastVowel(str) {
+    let vowels = "aeiouAEIOU";
+    for (let i = str.length - 1; i >= 0; i--) {
+        if (vowels.includes(str[i])) {
+            str = str.substring(0,i) + str.substring(i+1,str.length)
+            return str
+        }
+    } return str
+}
+
+
+console.log(removeLastVowel('bootcamp')); // 'bootcmp'
+console.log(removeLastVowel('better')); // 'bettr'
+console.log(removeLastVowel('graph')); // 'grph'
+console.log(removeLastVowel('thy')); // 'thy'
+
+
+// -- remove e words -- //
+
+// Write a function removeEWords(sentence) that accepts a sentence string as an arg.
+// The function should return a new string, containing only the words that don't have the letter "e" in them.
+
+// your code here
+
+
+let sentence = "this is my name";
+let sentence2 = sentence.toUpperCase().split(" ")
+console.log(sentence2)
+console.log(sentence2[3])
+console.log(sentence2[3].includes("E"))
+
+
+function removeEWords(str) {
+    let split = str.toUpperCase().split(" ");
+    let newArr = [];
+    for (let i = 0; i <= split.length-1; i++){
+        if(!split[i].includes("E")) {
+        newArr = newArr.concat(split[i])}
+    } return newArr
+}
+
+console.log(removeEWords('What time is it everyone?')); // 'What is it'
+console.log(removeEWords('Enter the building')); // 'building'
