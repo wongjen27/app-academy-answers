@@ -249,7 +249,35 @@ console.log(shortestWord('do what you enjoy'));         // 'do'
 
 
 
-// waiting on reverse sentence //
+// -- reverse sentence -- //
+
+// Write a function reverseSentence(sentence) that takes in a sentence as an arg.
+// The function should return a new sentence where the order of the words is reversed.
+// Note that you should reverse the order among words, not the order among characters.
+
+//create a function that takes a sentence as arg
+//use split to convert the sentence to array of words
+//create a new var answer = []
+//use loop that start from the last element and goes backwards to the beginning
+//push each word to the answer array
+//return answer array joined " "
+
+
+let reverseSentence = function(sentence) {
+    let arr = sentence.split(" ");
+    let answer = [];
+    for(let i = arr.length-1; i >= 0; i--) {
+        let word = arr[i];
+        answer.push(word);
+    }
+    return answer.join(" ");
+
+}
+
+
+console.log(reverseSentence('I am pretty hungry')); // 'hungry pretty am I'
+console.log(reverseSentence('follow the yellow brick road')); // 'road brick yellow the follow'
+
 
 
 
