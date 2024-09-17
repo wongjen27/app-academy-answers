@@ -331,3 +331,197 @@ let abbreviateWords = function(sentence) {
 
 console.log(abbreviateWords('what a wonderful place to live')); // what a wndrfl plc to live
 console.log(abbreviateWords('she sends an excellent message ')); // she snds an xcllnt mssg
+
+
+
+// -- snack to camel -- //
+
+// Write a function snakeToCamel that takes in a snake_cased string and returns a PascalCased version of the string. snake_case is where each word is separated with underscores (_). PascalCase is a string where the first char of each word is capital, all other chars lowercase.
+
+//create a function that takes a str
+//change it all to lowercase
+//split by "_"
+//create a new variable answer = []
+//create a loop that starts with the first element of the array and goes through it all
+//for each element, capitlize the first letter
+//push to answer
+//return answer.join()
+
+let str3 = "word";
+console.log(str3.substring(1,str3.length))
+
+
+
+let snakeToCamel = function(str) {
+    str = str.toLowerCase();
+    arr = str.split("_");
+    let answer = [];
+    for(let i = 0; i <= arr.length - 1; i++) {
+        let word = arr[i];
+        let letter = word[0].toUpperCase();
+        let camel = letter + word.substring(1,word.length);
+        answer.push(camel);
+    } return answer.join("")
+}
+
+
+
+console.log(snakeToCamel('snakes_go_hiss')); // 'SnakesGoHiss'
+console.log(snakeToCamel('say_hello_world')); // 'SayHelloWorld'
+console.log(snakeToCamel('app_academy_is_cool')); // 'AppAcademyIsCool'
+console.log(snakeToCamel('APp_ACADEMY_iS_cOol')); // 'AppAcademyIsCool'
+
+
+// -- hisperfy -- //
+
+// Write a function hipsterfy(sentence) that takes in a sentence string and returns the sentence where every word is missing its last vowel.
+
+//create a helper function that removes the last vowel of a word
+//the function takes in a word
+//create a var answer = ""
+//create a var vowels = "aeiouAEIOU"
+//create a for loop that goes through each letter of the word, backwards
+//if the letter is !vowel then push to answer
+//return answer
+
+//create a function that takes in a str as arg
+//create a var answer = []
+//split the sentence into an array of words
+//use a loop to go through each element of the
+
+let removeLV = function(word) {
+    let notVowels = "";
+    let vowels = "aeiouAEIOU";
+    for(let i = word.length-1; i >= 0; i--) {
+        if(vowels.includes(word[i])) {
+        return word.substring(0,i) + word.substring(i+1,word.length)
+}
+}
+}
+
+console.log(removeLV("bootcamp"));
+console.log(removeLV("everyone"));
+
+let hipsterfy = function(str) {
+    let answer = [];
+    let arr = str.split(" ");
+    for(let i = 0; i <= arr.length - 1; i++) {
+        let newWord = removeLV(arr[i]);
+        answer = answer.concat(newWord)
+    } return answer.join(" ")
+}
+
+
+
+console.log(hipsterfy('When should everyone wake up?')); // 'Whn shold everyon wak p?'
+console.log(hipsterfy('get ready for our bootcamp')); // 'gt redy fr or bootcmp'
+console.log(hipsterfy('panthers are great animals')); // 'panthrs ar gret animls'
+
+
+// -- repeat translate -- //
+
+// Write a function `repeatingTranslate` that accepts a sentence as an argument.
+// The function should translate the sentence according to the following rules:
+//
+// - words that are shorter than 3 characters are unchanged
+// - words that are 3 characters or longer are translated according to the
+//   following rules:
+//   - if the word ends with a vowel, simply repeat the word twice (example:
+//     'like'->'likelike')
+//   - if the word ends with a non-vowel, repeat all letters that come after the
+//     word's last vowel, including the last vowel itself (example:
+//     'trash'->'trashash')
+//
+// Note that if words are capitalized in the original sentence, they should remain
+// capitalized in the translated sentence. Vowels are the letters a, e, i, o, u.
+//
+// Can you reduce the problem into helper functions?
+
+// Your code here
+
+//write a helper functin that finds the last vowel and print the rest of the word
+//helper function takes a word as arg
+//let vowels = "aeiouAEIOU"
+//let answer = ""
+//loop that goes through the letters in a word backwards
+//if the letter is a vowel then word + word[i,word.length-1]
+
+//write a function that takes in a sentence
+//split the sentence into an array of words
+//let arr = []
+//if the word.length < 3 then push to arr
+//else if, ends with a vowel then word+word and push to arr
+//else use helper function
+
+let repeat = function(word) {
+    let vowels = "aeiouAEIOU";
+    for(let i = word.length-1; i >= 0; i--) {
+        if(vowels.includes(word[i])) {
+            return word+word.substr(i,word.length-1)
+        }
+    }
+}
+
+console.log(repeat("trash"))
+
+
+
+let repeatingTranslate = function(sentence) {
+    let arr = sentence.split(" ");
+    let vowels = "aeiouAEIOU";
+    let answer = [];
+    for(let i = 0; i <= arr.length - 1; i++) {
+        let word = arr[i];
+        if(word.length < 3) {
+            answer.push(word)
+        } else if(vowels.includes(word[word.length-1])) {
+            answer.push(word+word)
+        } else {
+            answer.push(repeat(word))
+        }
+} return answer.join(" ")
+}
+
+console.log(repeatingTranslate("we like to go running fast"));  // "we likelike to go runninging fastast"
+console.log(repeatingTranslate("he cannot find the trash"));    // "he cannotot findind thethe trashash"
+console.log(repeatingTranslate("pasta is my favorite dish"));   // "pastapasta is my favoritefavorite dishish"
+console.log(repeatingTranslate("her family flew to France"));   // "herer familyily flewew to FranceFrance"
+
+
+// -- consonant cancel -- //
+
+// Write a function consonantCancel that takes in a sentence and returns a new sentence where every word begins with it's first vowel.
+
+//use a helper function
+//create a var of vowels
+//create a loop that goes through each element
+//check if the letter is a vowel
+//if true, then push word.substring(i,word.length-1)
+
+//write a function that takes in a sentence
+//split the words of the sentence into an array of words
+//create a new array for answer
+
+
+function alter(word) {
+    let vowels = "aeiouAEIOU";
+    for(let i = 0; i <= word.length-1; i++) {
+        if(vowels.includes(word[i])) {
+            return word.substring(i,word.length)
+        }
+    }
+}
+
+console.log(alter("writing"))
+
+function consonantCancel(sentence) {
+    let arr = sentence.split(" ");
+    let answer = [];
+    for(let i = 0; i <= arr.length-1; i++) {
+        let word = arr[i]
+        answer.push(alter(word))
+    } return answer.join(" ")
+}
+
+console.log(consonantCancel("down the rabbit hole")); // "own e abbit ole"
+console.log(consonantCancel("writing code is challenging")); // "iting ode is allenging"
