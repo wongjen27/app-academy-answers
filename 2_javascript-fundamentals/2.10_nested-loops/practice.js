@@ -253,47 +253,39 @@ function maxSubArray(matrix) {
 
 // Write a function maxColumn(matrix) that takes in a 2-dimensional array (matrix) and returns an array containing the maximum value in each column. The array length should be equal to the number of columns, such that returnArray[i] is equal to the max value in the ith column.
 
-//write a function that takes in a matrix
-//create a variable that will house the answer
-//start a for loop that will begin at 0
-//set a variable colMax that is set at first of each column.
-//start a second for loop that will begin at 1, because colMax is the first item, we want second item to compare it with
-//if the next item in the column is greater than colMax then save that as new colMax
-//push each max to the answer array
-//return answer array
+
+//write a function that will take in a matrix
+//create a variable answer=[]
+//set the height and width.
+//height is number of subarrays: height = matrix.length
+//width is how long each subarray is: width = matrix[0].length
+//start a for loop that will go through each column starting from 0
+//create a variable maxCol = matrix[0][col] this is the first of the column that other values will be compared to
+//start a for loop that will go through each row of the column from 1 (bc maxCol is already 0)
+//if statement to check if the next value is larger than maxCol. if so, then store as new maxCol
+//push to answer
+//return answer
 
 function maxColumn(matrix) {
     let answer = [];
-    for(let i = 0; i <= matrix.length-1; i++) {
-        let subArray=matrix[i];
-        let colMax = matrix[0][i]
-        for(let j = 1; j <= subArray.length - 1; j++) {
-            if(matrix[j][i] > colMax) {
-                colMax = matrix[j][i];
+    const height = matrix.length;
+    const width = matrix[0].length;
+
+    for (let col = 0; col < width; col++) {
+        let maxCol = matrix[0][col];
+        for (let row = 0; row < height; row++) {
+            if (maxCol < matrix[row][col]) {
+                maxCol=matrix[row][col];
             }
-        }answer.push(colMax)
-    }return answer
+        } answer.push(maxCol)
+    } return answer
 }
+  matrix = [[ 5, 10,  8,  6],
+            [10,  2,  7,  9],
+            [21, 15, 19, 10]]
+  console.log(maxColumn(matrix)); //
 
-  matrix = [[ 5,  9, 21],
-            [ 9, 19,  6],
-            [12, 14, 15]]
 
-  console.log(maxColumn(matrix)); // [12, 19, 21]
-
-//I had to look at the answer so I made sure to revise the code, write out the reasoning (above) and rewrote the code from scratch
-function maxColumn(matrix) {
-    let answer = [];
-    for(let i = 0; i <= matrix.length - 1; i++) {
-        let subArray = matrix[i];
-        let colMax = matrix[0][i];
-        for(let j = 1; j <= subArray.length - 1; j++) {
-            if(matrix[j][i] > colMax) {
-                colMax = matrix[j][i];
-            }
-        }answer.push(colMax)
-    }return answer
-}
 
 
 
@@ -392,3 +384,79 @@ console.log(matrixAddition(matrixA, matrixB)); // [[11, 6], [7, 7]]
 console.log(matrixAddition(matrixA, matrixC)); // [[1, 5], [4, 6]]
 console.log(matrixAddition(matrixB, matrixC)); // [[8, 1], [3, -1]]
 console.log(matrixAddition(matrixD, matrixE)); // [[2, -5], [19, 14], [6, 4]]
+
+
+// -- lucky numbers -- //
+
+// Write a function luckyNumbers(matrix) that takes in a 2-dimensional array (matrix) and returns all lucky numbers in any order. A lucky number is the minimum element in its row and the maximum in its column.
+
+//write a helper function that finds the min of an array
+//write a helper function that finds the max of an array
+//begin the lucky numbers function
+//create a variable answer that will house the answer. answer = []
+//for loop starting with the first column and goes through
+//create var subCol and subRow
+//nested for loop that goes through the rows to create array for columns
+//for loop that goes through to create array for the rows
+//if statement to that uses the helper functions to find if any equals
+//push to answer array
+//return array
+
+
+function arrMin(arr) {
+    let min = arr[0];
+    for (let i = 1; i <= arr.length - 1; i++) {
+        if (min > arr[i]) {
+            min = arr[i]
+        }
+    } return min
+}
+
+console.log(arrMin([6,2,3]))
+
+function arrMax(arr) {
+    let max = arr[0];
+    for (let i = 1; i <= arr.length - 1; i++) {
+        if (max < arr[i]) {
+            max = arr[i]
+        }
+    } return max
+}
+
+console.log(arrMax([6,2,3]))
+
+
+function luckyNumbers(matrix) {
+    let answer = [];
+    let height = matrix.length;
+    let width = matrix[0].length;
+
+    for (let col = 0; col < width; col++) {
+        let subCol = [];
+        let subRow = [];
+        for (let row = 0; row < height; row++) {
+            subCol.push(matrix[row][col]);
+        }
+        for (let row = 0; row < height; row++) {
+            subRow = matrix[row];
+            if (arrMin(subRow) === arrMax(subCol)) {
+                answer.push(arrMin(subRow))
+            }
+        }
+    }return answer
+
+}
+
+
+  matrix = [[ 5,  9, 21],
+            [ 9, 19,  6],
+            [12, 14, 15]]
+  console.log(luckyNumbers(matrix)); // [12]
+
+console.log()
+
+  matrix = [[ 5, 10,  8,  6],
+            [10,  2,  7,  9],
+            [21, 15, 19, 10]]
+
+  console.log(luckyNumbers(matrix)); // [10]
