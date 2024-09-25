@@ -7,6 +7,18 @@ Do not use the built in Array#forEach.
 
 Examples:
 
+
+*******************************************************************************/
+
+let myForEach = function(array, cb) {
+    for (let i = 0; i <= array.length - 1; i++) {
+        let el = array[i];
+        cb(el, i, array)
+    }
+};
+
+
+
 myForEach(['a', 'b', 'c'], function (el, i) {
     console.log(el + ' is at index ' + i);
 }); // prints
@@ -15,17 +27,11 @@ myForEach(['a', 'b', 'c'], function (el, i) {
 // c is at index 2
 
 let test = [];
+
 myForEach(['laika', 'belka'], function (el) {
     test.push(el.toUpperCase());
 });
 console.log(test); // ['LAIKA', 'BELKA']
-*******************************************************************************/
-
-let myForEach = function() {
-
-};
-
-
 
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/

@@ -7,16 +7,16 @@ Do not use the built in Array#map
 
 // Examples
 
-let result1 = myMap([100, 25, 81, 64], Math.sqrt);
-console.log(result1);   // [ 10, 5, 9, 8 ]
-
-let result2 = myMap(['run', 'Forrest'], function (el) {
-    return el.toUpperCase() + '!';
-});
-console.log(result2);   // [ 'RUN!', 'FORREST!' ]
 *******************************************************************************/
 
-let myMap = function() {
+let myMap = function(array, cb) {
+    let answer = [];
+
+    for (let i = 0; i <= array.length - 1; i++) {
+        let el = array[i];
+        answer.push(cb(el,i,array));
+    }
+        return answer
 
 };
 
@@ -24,6 +24,13 @@ let myMap = function() {
 
 
 
+let result1 = myMap([100, 25, 81, 64], Math.sqrt);
+console.log(result1);   // [ 10, 5, 9, 8 ]
+
+let result2 = myMap(['run', 'Forrest'], function (el) {
+    return el.toUpperCase() + '!';
+});
+console.log(result2);   // [ 'RUN!', 'FORREST!' ]
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 module.exports = myMap;
