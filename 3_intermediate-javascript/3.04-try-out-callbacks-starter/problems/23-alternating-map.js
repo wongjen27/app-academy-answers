@@ -12,6 +12,25 @@ In other words,
 
 Examples:
 
+
+
+*******************************************************************************/
+
+
+let alternatingMap = function(arr, cb1, cb2) {
+    let answer = [];
+    for (let i = 0; i <= arr.length - 1; i++) {
+        let el = arr[i];
+        if (i%2===0) {
+            answer.push(cb1(el))
+        } else {
+            answer.push(cb2(el))
+        }
+    }
+    return answer
+};
+
+
 let triple = function (n) {
     return 3 * n;
 };
@@ -32,16 +51,6 @@ let whisper = function (s) {
 };
 console.log(alternatingMap(['hEy', 'EVERYone', 'whats', 'uP??'], yell, whisper));
 // [ 'HEY!', '..everyone..', 'WHATS!', '..up??..' ]
-
-*******************************************************************************/
-
-
-let alternatingMap = function() {
-
-};
-
-
-
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 module.exports = alternatingMap;

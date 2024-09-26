@@ -5,6 +5,22 @@ becomes the result of passing the word to the callback.
 
 Examples:
 
+
+*******************************************************************************/
+
+let sentenceMapper = function(sentence, cb) {
+    let arr = sentence.split(" ");
+    let answer = [];
+    for (let i = 0; i <= arr.length - 1; i++) {
+        let el = arr[i];
+        answer.push(cb(el))
+    }
+    return answer.join(" ")
+};
+
+
+
+
 let result1 = sentenceMapper("what is the answer?", function(word) {
     return word.toUpperCase() + "!";
 });
@@ -23,16 +39,6 @@ let removeVowels = function(word) {
 
 let result2 = sentenceMapper("this is pretty cool right", removeVowels);
 console.log(result2); // 'ths s prtty cl rght'
-*******************************************************************************/
-
-let sentenceMapper = function() {
-
-};
-
-
-
-
-
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 module.exports = sentenceMapper;

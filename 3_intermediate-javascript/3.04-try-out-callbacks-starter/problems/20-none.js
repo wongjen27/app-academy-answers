@@ -7,6 +7,21 @@ the method should return false.
 
 Examples:
 
+
+*******************************************************************************/
+
+let none = function(arr, cb) {
+    for (let i = 0; i <= arr.length - 1; i++) {
+        if (cb(arr[i])) {
+            return false
+        }
+    }
+    return true
+};
+
+
+
+
 let result1 = none(['ruby', 'topaz', 'opal'], function(w) {
     return w.includes('e');
 });
@@ -26,16 +41,6 @@ let result4 = none([4, -5, 7, -1], function(n) {
     return n < 0;
 });
 console.log(result4);   // false
-*******************************************************************************/
-
-let none = function() {
-
-};
-
-
-
-
-
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 module.exports = none;

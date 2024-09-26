@@ -6,6 +6,21 @@ result in true, then the function should return -1.
 
 Examples:
 
+
+*******************************************************************************/
+
+let firstIndex = function(arr, cb) {
+    let answer = -1;
+    for (let i = 0; i <= arr.length - 1; i++) {
+        if (cb(arr[i])) {
+            return answer = i
+        }
+    }
+    return answer
+};
+
+
+
 let result1 = firstIndex([3, 7, 8, 10], function (n) {
     return n % 2 === 0;
 });
@@ -20,15 +35,6 @@ let result3 = firstIndex(['canine', 'feline', 'tree'], function (s) {
     return s.length === 3;
 });
 console.log(result3); // -1
-*******************************************************************************/
-
-let firstIndex = function() {
-
-};
-
-
-
-
 
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/

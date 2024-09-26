@@ -6,6 +6,22 @@ or not exactly one element of the array results in true when passed into the cal
 
 Examples:
 
+
+*******************************************************************************/
+
+let one = function(arr, cb) {
+    let count = 0;
+    arr.forEach(function(el, i) {
+        if (cb(el,i)) {
+            count ++
+        }
+    })
+    return count === 1
+
+};
+
+
+
 let result1 = one(['x', 'y', 'z'], function(el) {
     return el === 'a';
 });
@@ -35,15 +51,6 @@ let result6 = one(['apple', 'dog', 'food', 'cat'], function(el, idx) {
     return el.length === idx;
 });
 console.log(result6);   // true
-*******************************************************************************/
-
-let one = function() {
-
-};
-
-
-
-
 
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/

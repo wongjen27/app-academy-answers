@@ -7,6 +7,19 @@ into the callback.
 
 Examples:
 
+
+*******************************************************************************/
+
+let mySome = function(arr, cb) {
+        for (let i = 0; i <= arr.length - 1; i++) {
+        let ele = arr[i];
+        if (cb(ele, i)) {
+            return true
+        }
+    } return false
+};
+
+
 let result1 = mySome([5, 1, 7, 9], function(ele, i) {
     return ele === i;
 });
@@ -21,14 +34,6 @@ let result3 = mySome(['soup', 'noodles', 'bike', 'ship'], function(ele) {
     return ele.length === 4;
 });
 console.log(result3);   // true
-*******************************************************************************/
-
-let mySome = function() {
-
-};
-
-
-
 
 
 
