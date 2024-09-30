@@ -62,18 +62,7 @@ console.log(suffixCipher('incremental progress is very instrumental', cipher2));
 // INCREMENTAL progressth isth very INSTRUMENTAL
 
 
-let bar = function(s) {
-    return s.toLowerCase() + "...";
-  };
 
-  let foo = function(message, cb1, cb2) {
-    console.log(cb1(message));
-    console.log(cb2(message));
-  };
-
-  foo("Hey Programmers", bar, function(s) {
-    return s.toUpperCase() + "!";
-  });
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 module.exports = suffixCipher;
