@@ -13,15 +13,24 @@ invoked below:
 ***********************************************************************/
 function countDownTimer(num) {
   // Your code here
-  if (num <= 0) {
-    return console.log("Happy New Year!")
+  if(num <= 0) {
+    return "Happy New Year!"
   }
-    return function() {
+  return function() {
     if(num > 0) {
-      num--
-    };
-    }
+      num--;
+      if (num === 0) {
+        return "Happy New Year!"
+      } else {
+        return;
+      }
+
   }
+  }
+  }
+
+
+
 
 
 
@@ -43,6 +52,20 @@ function countDownTimer(num) {
   console.log(threeDays()); // returns a function
   console.log(threeDays()); // returns a function
   console.log(threeDays()); // prints "Happy New Year!"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 try {
