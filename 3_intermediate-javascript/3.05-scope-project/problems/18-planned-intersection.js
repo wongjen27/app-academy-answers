@@ -5,19 +5,33 @@ passing in an array (secondArr) it returns a new array containing the elements
 common to both firstArr and secondArr.
 
 
-Example 1:
+
+
+*******************************************************************************/
+//
+
+
+function plannedIntersect(firstArr) {
+  let answer = [];
+  return function(secondArr) {
+    firstArr.forEach(element1 => {
+      secondArr.forEach(element2 => {
+        if (element1 === element2) {
+          answer.push(element2)
+        }
+      })
+    });
+    return answer
+  }
+}
+
+// Example 1:
 let abc = plannedIntersect(["a", "b", "c"]); // returns a function
 console.log(abc(["b", "d", "c"])); // returns [ 'b', 'c' ]
 
-Example 2:
+// Example 2:
 let fame = plannedIntersect(["f", "a", "m", "e"]); // returns a function
 console.log(fame(["a", "f", "z", "b"])); // returns [ 'f', 'a' ]
-
-*******************************************************************************/
-
-function plannedIntersect(firstArr) {
-  // Your code here
-}
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*************************/
 try {
