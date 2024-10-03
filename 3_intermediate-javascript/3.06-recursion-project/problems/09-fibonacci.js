@@ -15,25 +15,29 @@ Examples:
 
 ***********************************************************************/
 
+//fibonacci(num)
+//base case: num <= 1
+//r case: when num > 1
+//r step: num - 1
+
 function fibonacci (num) {
-  let sequence = [0, 1];
-  if (num < 2) {
-    return sequence[num]
+  if (num === 0) {
+    return 0
   }
-  if (sequence.length < num) {
-    let sum = sequence[sequence.length - 2] + sequence[sequence.length - 1];
-    sequence.push(sum);
-    return
+  if (num === 1) {
+    return 1
   }
-
-
+    return fibonacci(num - 1) + fibonacci(num - 2)
 }
+
 
 
 console.log(fibonacci(1)); // 1
 console.log(fibonacci(2)); // 1
 console.log(fibonacci(3)); // 2
 console.log(fibonacci(4)); // 3
+
+console.log()
 console.log(fibonacci(10)); // 55
 
 
