@@ -37,14 +37,28 @@ times `advancedExponent` is being recursively called.
 
 
 function advancedExponent(b, n) {
-  // your code here
+  if (n === 1) {
+    return b
+  }
+  if (n > 1) {
+    return b * advancedExponent(b, n - 1)
+  }
+  if (n <= 0) {
+    return (1/b) * advancedExponent(b, n + 1)
+  }
 }
+
+
+
 
 console.log(advancedExponent(2, 0)); // 1
 console.log(advancedExponent(2, 1)); // 2
 console.log(advancedExponent(2, 2)); // 4
 console.log(advancedExponent(2, 3)); // 8
 console.log(advancedExponent(2, 4)); // 16
+console.log(advancedExponent(2, 10)); // 1024
+console.log(advancedExponent(2, 11)); // 2048
+console.log(advancedExponent(2, 12)); // 4096
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
