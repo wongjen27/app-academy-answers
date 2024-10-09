@@ -16,8 +16,9 @@ function returned by recVolume should continue to return the original volume.
 
 //return function until it gets 3 numbers
 //create an array to house the three numbers, first is height
-//
-//onces it has 3 numbers, it uses the first three numbers to fine volume
+//create an inner function. it takes in a number
+//pushes the number to the nums array
+//if the nums array has more than 3 numbers, then it will return the product of the first 3 numbers 
 
 
 function recVolume(height) {

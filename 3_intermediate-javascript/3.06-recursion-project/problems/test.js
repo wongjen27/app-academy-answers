@@ -10,7 +10,7 @@ function sort(nums, sorted = []) {
     sorted.push(min);
 
     // Remove all occurrences of the minimum element from nums
-    nums = nums.filter(item => item !== min);
+    nums = nums.splice(minIndex, 1);
 
     return sort(nums, sorted);
 }

@@ -6,13 +6,21 @@ different permutations.
 
 Examples:
 
+
+***********************************************************************/
+
+// create a function that accepts an array as an arg 
+// start a for loop that goes through each element 
+// 
+
+function permutations(arr) {
+
+}
+
 permutations([1, 2]) // [[1, 2], [2, 1]]
 permutations([1, 2, 3]) // [[1, 2, 3], [1, 3, 2],
                         // [2, 1, 3], [2, 3, 1],
                         // [3, 1, 2], [3, 2, 1]]
-***********************************************************************/
-
-// your code here
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {

@@ -20,11 +20,7 @@ exponentiation in your solution.
 
 Examples:
 
-advancedExponent(2, 0); // 1
-advancedExponent(2, 1); // 2
-advancedExponent(2, 2); // 4
-advancedExponent(2, 3); // 8
-advancedExponent(2, 4); // 16
+
 advancedExponent(2, 5); // 32
 advancedExponent(2, 6); // 64
 advancedExponent(2, 7); // 128
@@ -44,6 +40,11 @@ function advancedExponent(b, n) {
   // your code here
 }
 
+console.log(advancedExponent(2, 0)); // 1
+console.log(advancedExponent(2, 1)); // 2
+console.log(advancedExponent(2, 2)); // 4
+console.log(advancedExponent(2, 3)); // 8
+console.log(advancedExponent(2, 4)); // 16
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
