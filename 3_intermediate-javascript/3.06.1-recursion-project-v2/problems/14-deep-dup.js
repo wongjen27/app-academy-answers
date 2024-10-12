@@ -14,7 +14,7 @@ since we used 'slice' in the example above that 'slice' creates a shallow copy, 
 correct. For this problem we duplicate our original array so that our function returns a new
 array with different memory adresses.
 
-Write a function, deepDup(arr), that deeply duplicates a given array. Your duplicated array, 
+Write a function, deepDup(arr), that deeply duplicates a given array. Your duplicated array,
 when compared to various indexes of the original array, should evaluate to false like below.
 
 
@@ -36,7 +36,49 @@ console.log(x[0] === y[0]) // true
 
 ***********************************************************************/
 
-// your code here
+//create answer = []
+//base case:
+//recursive case:
+//recursive step:
+
+function deepDup(arr) {
+  let answer = [];
+  if (arr.length === 0) {
+    return answer
+  }
+  if (Array.isArray(arr[0])) {
+    answer.push(deepDup(arr[0]))
+  } else {
+    answer.push(arr[0])
+  }
+  answer = answer.concat(deepDup(arr.slice(1)))
+  return answer
+}
+
+
+// function deepDup(arr) {
+//   let answer = [];
+//   arr.forEach(element => {
+//     if (Array.isArray(element)) {
+//       answer.push(deepDup(element))
+//     } else {
+//       answer.push(element)
+//     }
+//   });
+//   return answer
+
+// }
+
+let array = [1,2,3]
+console.log(array.slice(1))
+
+
+let arr = [[1], [2, [3]]];
+duped = deepDup(arr); // [[1], [2, [3]]]
+console.log(duped)
+// console.log(arr[0] === duped[0]) // false
+// console.log(arr[1] === duped[1]) // false
+// console.log(arr[1][1] === duped[1][1]) // false
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
