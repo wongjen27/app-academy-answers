@@ -15,11 +15,23 @@ console.log(hipsterfy('panthers are great animals')); // 'panthrs ar gret animls
 */
 
 let removeLastVowel = function(word) {
-    // Your code here
+    let vowels = "AEIOUaeiou";
+    let answer = "";
+    for (let i = word.length - 1; i >= 0; i--) {
+        if(vowels.includes(word[i])) {
+            return word.slice(0,i) + word.slice(i + 1,word.length)
+        }
+    }
+
 };
 
 let hipsterfy = function(sentence) {
-    // Your code here
+    let arr = sentence.split(" ");
+    let answer = [];
+    arr.forEach(element => {
+        return answer.push(removeLastVowel(element))
+    });
+    return answer.join(" ")
 };
 
 console.log(hipsterfy('When should everyone wake up?')); // 'Whn shold everyon wak p?'
