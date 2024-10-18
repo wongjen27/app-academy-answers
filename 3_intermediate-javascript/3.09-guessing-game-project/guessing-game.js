@@ -9,10 +9,10 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-//********* generate a secret number *********/
-let secretNumber = getRandomIntInclusive(0,100);
 
-function getRandomIntInclusive(min, max) {
+
+//********* generate a secret number *********/
+function getRandomInRange(min, max) {
     const minCeiled = Math.ceil(min);
     const maxFloored = Math.floor(max);
     return Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled); // The maximum is inclusive and the minimum is inclusive
@@ -20,6 +20,8 @@ function getRandomIntInclusive(min, max) {
 
 
 //********* checks guess against secret number *********/
+let secretNumber;
+
 let checkGuess = num => {
     if (num > secretNumber) {
         console.log("Too high");
@@ -50,9 +52,23 @@ let askGuess = () => {
             console.log("Try again")
             askGuess();
         }
-      });
+    });
 }
 
 
 
-console.log(askGuess())
+// console.log(askGuess())
+
+//********* ask user to give a range *********/
+
+let askRange = () => {
+    rl.question('Enter a min number: ', (min) => {
+        rl.question('enter a max number: ', (max) => {
+            console.log(`Guess a number between ${min} and ${max}`)
+            secretNumber = getRandomInRange(Number(min), Number(max))
+            askGuess()
+        })
+    })
+}
+
+askRange();
