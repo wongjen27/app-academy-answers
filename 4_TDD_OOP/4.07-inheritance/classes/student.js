@@ -1,31 +1,31 @@
 const Person = require('./person');
 
 class Student extends Person {
-  constructor(firstName, lastName, age, major, gpa) {
-    super(firstName, lastName, age);
+  constructor(firstName, lastName, major, GPA) {
+    super(firstName, lastName);
     this.major = major;
-    this.gpa = gpa;
+    this.GPA = GPA;
   }
 
   static compareGPA(student1, student2) {
-    if (student1.gpa > student2.gpa) {
-      return `${student1.firstName} ${student1.lastName} has the higher GPA`
-    } else if (student1.gpa < student2.gpa) {
-      return `${student2.firstName} ${student2.lastName} has the higher GPA`
-    } else if (student2.gpa === student1.gpa) {
-      return "Both students have the same GPA."
+    if (student1.GPA > student2.GPA) {
+      return `${student1.firstName} ${student1.lastName} has the higher GPA.`
+    } else if (student1.GPA < student2.GPA) {
+      return `${student2.firstName} ${student2.lastName} has the higher GPA.`
+    } else if (student2.GPA === student1.GPA) {
+      return "Both students have the same GPA"
     }
   }
 }
 
 
-const student1 = new Student('Alice', 'Smith', 25, 'Mathematics', 4);
-const student2 = new Student('Bob', 'Johnson', 22, 'Physics', 4);
+const student1 = new Student('Alice', 'Smith', 25, 'Mathematics', 4.5);
+const student2 = new Student('Bob', 'Johnson', 22, 'Physics', 4.2);
 
 console.log(Student.compareGPA(student1, student2));
 
 console.log(student1.major); // Outputs: 'Mathematics'
-console.log(student1.gpa);   // Outputs: 3.8
+console.log(student1.GPA);   // Outputs: 3.8
 
 
 /****************************************************************************/

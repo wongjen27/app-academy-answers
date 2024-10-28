@@ -1,13 +1,13 @@
 const Person = require('./person');
 
 class Teacher extends Person {
-  constructor(firstName, lastName, age, subject, yearsOfExperience) {
-    super(firstName, lastName, age);
+  constructor(firstName, lastName, subject, yearsOfExperience) {
+    super(firstName, lastName);
     this.subject = subject;
     this.yearsOfExperience = yearsOfExperience;
   }
 
-  static yearsOfExperience(teachers) {
+  static combinedYearsOfExperience(teachers) {
     let sum = 0;
     teachers.forEach(element => {
       sum = sum + element.yearsOfExperience
@@ -21,7 +21,7 @@ const teacher2 = new Teacher('Bob', 'Johnson', 22, 'Physics', 6);
 
 let HSteachers = [teacher1, teacher2]
 
-console.log(Teacher.yearsOfExperience(HSteachers))
+console.log(Teacher.combinedYearsOfExperience(HSteachers))
 
 /****************************************************************************/
 /******************* DO NOT EDIT CODE BELOW THIS LINE ***********************/
