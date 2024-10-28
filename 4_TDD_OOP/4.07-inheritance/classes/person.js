@@ -26,7 +26,7 @@ class Person {
   }
 }
 
-class Student extends Person {}
+
 
 /****************************************************************************/
 /******************* DO NOT EDIT CODE BELOW THIS LINE ***********************/
