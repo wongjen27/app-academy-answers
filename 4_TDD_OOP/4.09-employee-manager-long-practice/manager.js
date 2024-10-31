@@ -59,6 +59,13 @@ console.log(splinter.calculateBonus(0.05)); // => 22500
 console.log(leo.calculateBonus(0.05)); // => 17500
 console.log(raph.calculateBonus(0.05)); // => 13000
 
+hobbes = new Manager('Hobbes', 1000000, 'Founder');
+calvin = new Manager('Calvin', 130000, 'Director', hobbes);
+susie = new Manager('Susie', 100000, 'TA Manager', calvin);
+lily = new Employee('Lily',90000, 'TA', susie);
+clifford = new Employee('clifford', 90000, 'TA', susie);
+lily.calculateBonus(0.05)
+
 // console.log(raph.employees)
 
 // console.log(splinter.displayEmployees())
