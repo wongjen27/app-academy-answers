@@ -1,3 +1,6 @@
+
+const { Food } = require('./food');
+
 class Room {
 
     constructor(name, description) {
@@ -15,7 +18,16 @@ class Room {
         console.log(this.description);
         console.log("");
         if (this.items.length > 0) {
-            console.log(`Items: ${this.items.map(item => item.name).join(", ")}`);
+            console.log("Items in this room:");
+            this.items.forEach(item => {
+                if (item instanceof Food) {
+                    console.log(`- ${item.name} (Food)`);
+                } else {
+                    console.log(`- ${item.name}`);
+                }
+            });
+        } else {
+            console.log("There are no items here.");
         }
         console.log(this.getExitsString());
         console.log("");
@@ -44,7 +56,8 @@ class Room {
     }
 
     getItemByName(name) {
-        return this.items[name]
+
+        return this.items.find(item => item.name.toLowerCase() === name.toLowerCase());
     }
 
 }

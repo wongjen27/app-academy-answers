@@ -1,14 +1,14 @@
 class Item {
 
-    constructor(name, color, size) {
+    constructor(name, description, room) {
       this.name = name;
-      this.color = color;
-      this.size = size;
+      this.description = description;
+      this.room = room;
     }
-
 }
 
-const knife = new Item('knife', 'black', 'small')
+
+
 
 module.exports = {
   Item,
