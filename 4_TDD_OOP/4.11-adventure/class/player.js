@@ -77,13 +77,6 @@ class Player {
         if (item) {
             // Check if the item is food
             if (item.isFood) {
-                // Apply the food's effect (assuming it has an 'effect' function)
-                if (item.effect) {
-                    console.log(`${this.name} eats the ${item.name} and feels its effects.`);
-                    item.effect(this);  // Apply the effect on the player (e.g., heal)
-                } else {
-                    console.log(`${this.name} eats the ${item.name}, but it has no effect.`);
-                }
 
                 // Remove from player's inventory after eating
                 const itemIndex = this.items.indexOf(item);

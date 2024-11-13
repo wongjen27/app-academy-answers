@@ -1,3 +1,5 @@
+const { Food } = require('../class/food');
+
 module.exports = {
     rooms: [
         {

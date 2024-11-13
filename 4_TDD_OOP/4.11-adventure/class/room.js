@@ -21,7 +21,7 @@ class Room {
             console.log("Items in this room:");
             this.items.forEach(item => {
                 if (item instanceof Food) {
-                    console.log(`- ${item.name} (Food)`);
+                    console.log(`- ${item.name}`);
                 } else {
                     console.log(`- ${item.name}`);
                 }
